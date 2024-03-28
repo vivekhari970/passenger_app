@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <div class="video-container">
+    <video autoplay muted loop class="video">
+      <source src="video.mp4" type="video/mp4">
+    </video>
+    <div class="overlay">
+      <div id="container" class="content">
+        <div id="counter">
+          <h1>People Visited: <span id="count-el">0</span></h1>
+          <!-- <h2 >0</h2> -->
+          <button id="increment-btn" onclick="increment()">INCREMENT</button>
+        </div>
+        <div id="saved-numbers">
+          <p id="save-el">Previous Visitors: </p>
+          <button id="save-btn" onclick="save()">SAVE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+   let count = 0
+let saveEl = document.getElementById("save-el")
+let countEl = document.getElementById("count-el")
+
+function increment() {
+    count += 1
+    countEl.textContent = count
+}
+
+function save() {
+    let countStr = count + " - "
+    saveEl.textContent = countStr  // Corrected typo here
+    countEl.textContent = 0
+    count = 0
+}
+
+console.log("Let's count people on the subway!")
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('container');
+    container.classList.add('enter');
+  });
+  </script>
+</body> 
+</html>
